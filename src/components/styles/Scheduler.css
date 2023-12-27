@@ -1,0 +1,42 @@
+.scheduler-form {
+  text-align: center;
+  padding: 20px;
+}
+
+.scheduler-title {
+  background-image: linear-gradient(to bottom right,#0369a1, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px #483edb) drop-shadow(0 0 50px #483edb) contrast(2) brightness(1);
+  margin: 5px;
+}
+
+.scheduler-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-container {
+  padding: 1rem;
+}
+
+.scheduler-paper {
+  padding: 1rem;
+  flex: 1;
+}
+
+/* Media query for small screens */
+@media (max-width: 800px) {
+  .scheduler-container {
+    flex-direction: column; /* Stacking order for small screens */
+  }
+
+  .scheduler-paper {
+    margin-top: 1rem; /* Space between form and scheduler */
+  }
+
+  .scheduler-form-wrapper {
+    text-align: center;
+  }
+}

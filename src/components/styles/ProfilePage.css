@@ -1,0 +1,20 @@
+.profile-page {
+  text-align: center;
+}
+
+.profileTitle {
+  background-image: linear-gradient(to bottom right,#0369a1, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px #483edb) drop-shadow(0 0 50px #483edb) contrast(2) brightness(1);
+}
+
+.profile-card {
+  background-color: rgba(0, 0, 0, 0.5)!important;
+  backdrop-filter: blur(10px);
+  margin: 100px auto;
+  padding: 30px;
+  max-width: 600px;
+  width: 100%;
+}

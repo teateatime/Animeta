@@ -1,0 +1,126 @@
+/* Bookmarks page container */
+.bookmarks-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Bookmarks heading */
+.bookmarks-heading {
+  background-image: linear-gradient(to bottom right, #0369a1, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px #483edb) drop-shadow(0 0 50px #483edb) contrast(2) brightness(1);
+}
+
+.bookmark-title {
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #c5e5f7, #73c6ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px #483edb) drop-shadow(0 0 100px #483edb) contrast(2) brightness(1);
+}
+
+/* No bookmarks message */
+.no-bookmarks-message {
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #0369a1, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 15px #483edb) drop-shadow(0 0 50px #483edb) contrast(2) brightness(2);
+}
+
+/* Bookmark list */
+.bookmarks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Bookmark item */
+.bookmark-item {
+  width: 300px!important;
+  background-color: rgba(0, 0, 0, 0.5)!important;
+  border-radius: 10px;
+  transition: transform 0.2s;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Bookmark content */
+.bookmark-content {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* Bookmark title */
+.bookmark-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+/* Bookmark link */
+.bookmark-link {
+  text-decoration: none;
+  color: #0369a1;
+}
+
+.bookmark-title-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Bookmark action container */
+.bookmark-action-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Delete button container */
+.delete-button-container {
+  margin-top: 10px;
+}
+
+.delete-button {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #e04040;
+}
+
+/* Cohesive delete button */
+.cohesive-delete-button {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, hsla(324, 91%, 46%, 1) 0%, hsla(18, 100%, 49%, 1) 100%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cohesive-delete-button:hover {
+  background-image: linear-gradient(to bottom right, #e04040, #ff5252);
+}
