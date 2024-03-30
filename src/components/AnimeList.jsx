@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Typography from '@mui/material/Typography';
 import Header from './Header';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import './styles/AnimeList.css';
 
 function AnimeList() {
@@ -111,7 +112,7 @@ function AnimeList() {
   if (currentSeasonError || trendingAnimeError || recommendedMangaError || upcomingSeasonError) {
     return (
       <div style={{ textAlign: 'center', margin: '10px' }}>
-        <p className='searchContentError'>Error fetching anime. Please try again later.</p>
+        <p className='searchContentError'>Error fetching anime. Please refresh the page or try again later.</p>
       </div>
     );
   }
@@ -295,6 +296,9 @@ function AnimeList() {
             <Typography variant="body1" color="textSecondary" className="footer-right">
               © {new Date().getFullYear()} Animeta. All rights reserved.
             </Typography>
+            <a href="https://github.com/teateatime/Animeta">
+              <GitHubIcon style={{ fontSize: 30, color: 'mintcream', background: '#333', padding: '3px', borderRadius: '5px'}} />
+            </a>
           </div>
         </div>
       </div>

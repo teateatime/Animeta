@@ -3,7 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { firebase } from '../firebase';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import SearchIcon from '@mui/icons-material/Search'; // Import SearchIcon
+import SearchIcon from '@mui/icons-material/Search';
+import { PersonOutline } from '@material-ui/icons';
 import './styles/Header.css';
 
 function Header() {
@@ -11,7 +12,8 @@ function Header() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchError, setSearchError] = useState('');
-  const [user, setUser] = useState(null); // Add user state
+  const [user, setUser] = useState(null);
+  const [showSignOutPopup, setShowSignOutPopup] = useState(false);
 
   useEffect(() => {
     // Listen for changes in authentication state
@@ -22,6 +24,17 @@ function Header() {
     // Unsubscribe when component unmounts
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    // Show sign out popup when user signs out
+    if (showSignOutPopup) {
+      const timeout = setTimeout(() => {
+        setShowSignOutPopup(false);
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [showSignOutPopup]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -50,6 +63,7 @@ function Header() {
   const handleLogout = async () => {
     try {
       await firebase.auth().signOut();
+      setShowSignOutPopup(true); // Show sign out popup
       navigate('/');
     } catch (error) {
       console.error('Error logging out:', error);
@@ -83,7 +97,7 @@ function Header() {
               className="search-input"
               sx={{ flex: 1 }}
             />
-            <SearchIcon className="search-icon" color="primary" onClick={handleSearch} />
+            {/* <SearchIcon className="search-icon" color="primary" onClick={handleSearch} /> */}
           </div>
           {searchError && <p className="search-error">{searchError}</p>}
         </form>
@@ -95,9 +109,20 @@ function Header() {
       {isMenuOpen && (
         <div className="menu-overlay" onClick={closeMenu}>
           <div className="menu-content">
-            <button className="close-button" onClick={closeMenu}>
+            {/* <button className="close-button" onClick={closeMenu}>
               X
-            </button>
+            </button> */}
+            {user ? (
+              <Link to="/profile">
+                <PersonOutline style={{ fontSize: '80px', marginRight: '5px', color: 'mintcream' }} />
+                <Typography variant="h6" style={{ color: 'mintcream' }}>{user.username}</Typography>
+              </Link>
+            ) : (
+              <>
+                <PersonOutline style={{ fontSize: '80px', marginRight: '5px', color: 'mintcream' }} />
+                <Typography variant="h6" style={{ color: 'mintcream' }}>Guest</Typography>
+              </>
+            )}
             <Link to="/about">
               <Typography variant="h6">About</Typography>
             </Link>
@@ -124,6 +149,11 @@ function Header() {
               </Link>
             )}
           </div>
+        </div>
+      )}
+      {showSignOutPopup && (
+        <div className="sign-out-popup">
+          <p>Successfully signed out</p>
         </div>
       )}
     </div>

@@ -115,7 +115,7 @@ function PlannerList() {
           <div className='form-container'>
             <Paper className='scheduler-form-wrapper' style={{ padding: '1rem' }}>
               <Typography variant="h4" style={{ textAlign: 'center' }}>
-                My Form
+                Event Form
               </Typography>
               {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
               <Form className='scheduler-form' onSubmit={handleSubmit} />
